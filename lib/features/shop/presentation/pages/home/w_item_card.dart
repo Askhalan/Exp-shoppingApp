@@ -1,7 +1,9 @@
 import 'package:fake_store/core/constants/colors.dart';
 import 'package:fake_store/core/constants/sizes.dart';
 import 'package:fake_store/features/shop/domain/entities/product_entity.dart';
+import 'package:fake_store/features/shop/presentation/bloc/cart_bloc/cart_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ItemCard extends StatelessWidget {
   final Product product;
@@ -60,7 +62,9 @@ class ItemCard extends StatelessWidget {
                 ),
               ),
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                 BlocProvider.of<CartBloc>(context).add(AddProductToCart(product));
+                },
                 child: Container(
                   decoration: const BoxDecoration(
                       borderRadius: BorderRadius.only(

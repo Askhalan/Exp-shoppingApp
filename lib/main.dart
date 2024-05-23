@@ -1,4 +1,5 @@
 import 'package:fake_store/core/dependencies/init_dependencies.dart';
+import 'package:fake_store/features/shop/presentation/bloc/cart_bloc/cart_bloc.dart';
 import 'package:fake_store/features/shop/presentation/bloc/home_bloc/shop_bloc.dart';
 
 import 'package:fake_store/features/shop/presentation/pages/home/scn_home.dart';
@@ -11,8 +12,8 @@ void main() async {
   await initDependencies();
   runApp(MultiBlocProvider(
     providers: [
-      BlocProvider(create: (_) => serviceLocator<ShopBloc>())
-      // BlocProvider(create: (context)=> ShopBloc())
+      BlocProvider(create: (_) => serviceLocator<ShopBloc>()),
+      BlocProvider(create: (context)=> CartBloc())
     ],
     child: const MyApp(),
   ));

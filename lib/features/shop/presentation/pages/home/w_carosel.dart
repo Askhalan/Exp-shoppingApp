@@ -15,7 +15,7 @@ class HomeCarosel extends StatelessWidget {
         borderRadius: BorderRadius.circular(JSize.borderRadLg * 2),
         child: Swiper.children(
           curve: Curves.linear,
-          autoplay: true,
+          autoplay: false,
           pagination: const SwiperPagination(
               builder: DotSwiperPaginationBuilder(
                   color: Colors.white30,

@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'package:http/http.dart' as http;
 import 'package:fake_store/features/shop/data/models/prduct_model.dart';
 
@@ -12,6 +13,7 @@ abstract interface class ProductDataSource {
 class ProductDataSourceImpl extends ProductDataSource {
   @override
   Future<List<ProductModel>> getAllProducts() async {
+    log("Entered ProductDataSourceImpl");
     try {
       //------- Fetching the data from API
       final response =
@@ -19,13 +21,14 @@ class ProductDataSourceImpl extends ProductDataSource {
 
       if (response.statusCode == 200) {
         Iterable data = json.decode(response.body);
-
+        log(data.toString()); 
         //------- Converting the response data into model_class & returning
 
         List<ProductModel> tempList = data.map((model) {
           return ProductModel.fromJson(model);
         }).toList();
-
+        log("completed ProductDataSourceImpl");
+log(tempList.toString());
         return tempList;
       } else {
         throw Exception(

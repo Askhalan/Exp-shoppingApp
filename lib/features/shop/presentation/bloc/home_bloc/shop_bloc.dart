@@ -1,5 +1,4 @@
 
-
 import 'package:fake_store/features/shop/domain/entities/product_entity.dart';
 import 'package:fake_store/features/shop/domain/usecases/get_all_products.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
